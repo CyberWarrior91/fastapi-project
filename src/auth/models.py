@@ -1,13 +1,7 @@
 from datetime import datetime
-from sqlalchemy import JSON, MetaData, Integer, String, TIMESTAMP, ForeignKey, Boolean
+from sqlalchemy import JSON, Integer, String, TIMESTAMP, ForeignKey, Boolean
 from sqlalchemy.orm import DeclarativeBase, mapped_column, relationship, Mapped
-
-
-metadata = MetaData()
-
-
-class Base(DeclarativeBase):
-    pass
+from src.database import Base
 
 
 # an example mapping using the base
@@ -28,6 +22,7 @@ class User(Base):
     is_verified: Mapped[bool] = mapped_column(
         Boolean, default=False, nullable=False
     )
+
 
 class Role(Base):
     __tablename__ = "role"

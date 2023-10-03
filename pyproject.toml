@@ -12,9 +12,31 @@ fastapi = {extras = ["all"], version = "^0.103.1"}
 starlette = "^0.27.0"
 sqlalchemy = "^2.0.21"
 alembic = "^1.12.0"
-psycopg2-binary = "^2.9.7"
 fastapi-users = {extras = ["sqlalchemy"], version = "^12.1.2"}
 asyncpg = "^0.28.0"
+fastapi-cache2 = {extras = ["redis"], version = "^0.2.1"}
+redis-tools = "^0.0.2"
+redis = "^4.2.0"
+celery = "^5.3.4"
+flower = "^2.0.1"
+jinja2 = "^3.1.2"
+pytest = "^7.4.2"
+pytest-asyncio = "^0.21.1"
+aiohttp = {extras = ["speedups"], version = "^3.8.5"}
+gunicorn = "^21.2.0"
+
+
+[tool.pytest.ini_options]
+pythonpath = [
+    ".", "src",
+]
+asyncio_mode="auto"
+filterwarnings = [
+    "error",
+    "ignore::UserWarning",
+    # note the use of single quote below to denote "raw" strings in TOML
+    'ignore:function ham\(\) is deprecated:DeprecationWarning',
+]
 
 
 [build-system]
